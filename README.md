@@ -10,6 +10,18 @@ y guardarlas convertidas a `.webp` con fondo transparente.
 
 ## Instalación
 
+### Opción recomendada en Linux: usar `venv`
+
+Si estás en Linux, lo más seguro es crear un entorno virtual dentro del proyecto:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install rembg pillow onnxruntime
+```
+
+### Instalación global
+
 Abrí una terminal (CMD, PowerShell o Terminal) y corré:
 
 ```bash
@@ -35,18 +47,39 @@ Abrí la terminal *dentro* de la carpeta donde están las fotos y ejecutá:
 python quitar_fondo.py
 ```
 
+En Linux con `venv`:
+
+```bash
+source .venv/bin/activate
+python quitar_fondo.py
+```
+
 **Opción B — indicar la carpeta con las fotos:**
 
 ```bash
 python quitar_fondo.py "C:\ruta\a\mis\fotos"
 ```
 
-(en Mac/Linux sería algo como `python3 quitar_fondo.py "/ruta/a/mis/fotos"`)
+En Linux con `venv`:
+
+```bash
+source .venv/bin/activate
+python quitar_fondo.py "/ruta/a/mis/fotos"
+```
+
+(en Mac/Linux también puede ser `python3 quitar_fondo.py "/ruta/a/mis/fotos"`)
 
 **Opción C — elegir también dónde guardar el resultado:**
 
 ```bash
 python quitar_fondo.py "C:\ruta\a\mis\fotos" -o "C:\ruta\a\salida"
+```
+
+En Linux con `venv`:
+
+```bash
+source .venv/bin/activate
+python quitar_fondo.py "/ruta/a/mis/fotos" -o "/ruta/a/salida"
 ```
 
 ### 3. Esperá a que termine
@@ -89,6 +122,12 @@ Por defecto, las imágenes procesadas quedan en una subcarpeta llamada
 **"Faltan librerías" / `ModuleNotFoundError`**
 No corriste (o falló) el `pip install`. Volvé a correr:
 ```bash
+pip install rembg pillow onnxruntime
+```
+
+Si usás `venv` en Linux:
+```bash
+source .venv/bin/activate
 pip install rembg pillow onnxruntime
 ```
 
