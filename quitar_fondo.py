@@ -3,7 +3,7 @@
 quitar_fondo.py
 ----------------
 Recorre una carpeta, le quita el fondo a todas las imágenes que encuentre
-(jpg, jpeg, png, webp, bmp, tiff...) y guarda el resultado como .webp con
+(jpg, jpeg, png, webp, bmp, tiff, heic...) y guarda el resultado como .webp con
 fondo transparente en una subcarpeta de salida.
 
 USO:
@@ -17,7 +17,7 @@ USO:
         -> guarda el resultado en otra carpeta específica
 
 INSTALACIÓN (una sola vez):
-    pip install rembg pillow onnxruntime
+    pip install rembg pillow onnxruntime pillow-heif
 
 La primera vez que se ejecuta, descarga el modelo de IA (~180 MB) y lo
 guarda en tu computadora; las siguientes veces ya no vuelve a descargarlo.
@@ -27,7 +27,7 @@ import sys
 import argparse
 from pathlib import Path
 
-EXTENSIONES_VALIDAS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff", ".tif"}
+EXTENSIONES_VALIDAS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff", ".tif", ".heic", ".heif"}
 
 
 def main():
@@ -41,8 +41,10 @@ def main():
     try:
         from rembg import remove, new_session
         from PIL import Image
+        import pillow_heif
+        pillow_heif.register_heif_opener()
     except ImportError:
-        print("Faltan librerías. Instálalas con:\n\n    pip install rembg pillow onnxruntime\n")
+        print("Faltan librerías. Instálalas con:\n\n    pip install rembg pillow onnxruntime pillow-heif\n")
         sys.exit(1)
 
     carpeta = Path(args.carpeta).expanduser().resolve()

@@ -17,7 +17,7 @@ Si estás en Linux, lo más seguro es crear un entorno virtual dentro del proyec
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install rembg pillow onnxruntime
+pip install rembg pillow onnxruntime pillow-heif
 ```
 
 ### Instalación global
@@ -25,7 +25,7 @@ pip install rembg pillow onnxruntime
 Abrí una terminal (CMD, PowerShell o Terminal) y corré:
 
 ```bash
-pip install rembg pillow onnxruntime
+pip install rembg pillow onnxruntime pillow-heif
 ```
 
 Esto instala todo lo necesario. Solo hay que hacerlo una vez.
@@ -108,7 +108,7 @@ Por defecto, las imágenes procesadas quedan en una subcarpeta llamada
 
 - Recorre la carpeta indicada (no entra a subcarpetas).
 - Toma todas las imágenes con extensión `.jpg`, `.jpeg`, `.png`, `.webp`,
-  `.bmp`, `.tiff` o `.tif`.
+  `.bmp`, `.tiff`, `.tif`, `.heic` o `.heif`.
 - Le quita el fondo a cada una usando un modelo de IA (rembg).
 - Guarda el resultado en formato `.webp` con fondo transparente, con el
   mismo nombre que el archivo original.
@@ -122,13 +122,13 @@ Por defecto, las imágenes procesadas quedan en una subcarpeta llamada
 **"Faltan librerías" / `ModuleNotFoundError`**
 No corriste (o falló) el `pip install`. Volvé a correr:
 ```bash
-pip install rembg pillow onnxruntime
+pip install rembg pillow onnxruntime pillow-heif
 ```
 
 Si usás `venv` en Linux:
 ```bash
 source .venv/bin/activate
-pip install rembg pillow onnxruntime
+pip install rembg pillow onnxruntime pillow-heif
 ```
 
 **El recorte queda con bordes raros en botellas de vidrio transparente**
